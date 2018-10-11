@@ -14,15 +14,15 @@ function listCandles() {
     });
 }
 
-function onGetCandleSuccess(customers) {
+function onGetCandleSuccess(candles) {
     if ($("#candlesTable tbody").length == 0) {
         $("#candlesTable").append("<tbody></tbody>");
     }
     $("#candlesTable tbody").empty();
     // Iterate over the collection of data
-    $.each(customers, function (index, customer) {
+    $.each(candles, function (index, candle) {
         // Add a row to the post table
-        addCustomerRow(customer);
+        addCustomerRow(candle);
     });
 }
 
