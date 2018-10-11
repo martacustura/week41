@@ -6,6 +6,7 @@ function listCandles() {
         type: 'GET',
         dataType: 'json',
         success: function (customers) {
+            onGetCandleSuccess(customers);
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -13,18 +14,23 @@ function listCandles() {
     });
 }
 
+function onGetCandleSuccess(candles) {
     if ($("#candlesTable tbody").length == 0) {
         $("#candlesTable").append("<tbody></tbody>");
     }
     $("#candlesTable tbody").empty();
     // Iterate over the collection of data
+    $.each(candles, function (index, candle) {
         // Add a row to the post table
+        addCustomerRow(candle);
     });
 }
 
+function addCustomerRow(candle) {
     // Check if <tbody> tag exists, add one if not
     // Append row to <table>
     $("#candlesTable tbody").append(
+        buildCandleRow(candle));
 }
 
 function buildCandleRow(candle) {
