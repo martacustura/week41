@@ -12,13 +12,6 @@ body {
     
 }
 
-* {box-sizing: border-box;}
-
-.container {
-  position: relative;
-  width: 50%;
-  max-width: 300px;
-}
 
 .image {
   display: block;
@@ -41,9 +34,6 @@ body {
   text-align: center;
 }
 
-.container:hover .overlay {
-  opacity: 1;
-}
 .header1{
     width: 100%;
     background-image:url("img/HOL-13.jpeg");
