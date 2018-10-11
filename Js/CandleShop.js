@@ -26,11 +26,11 @@ function onGetCandleSuccess(candles) {
     });
 }
 
-function addCustomerRow(customer) {
+function addCustomerRow(candle) {
     // Check if <tbody> tag exists, add one if not
     // Append row to <table>
     $("#candlesTable tbody").append(
-        buildCandleRow(customer));
+        buildCandleRow(candle));
 }
 
 function buildCandleRow(candle) {
