@@ -6,7 +6,7 @@ function listCandles() {
         type: 'GET',
         dataType: 'json',
         success: function (customers) {
-            onGetCustomersSuccess(customers);
+            onGetCandleSuccess(customers);
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -14,11 +14,11 @@ function listCandles() {
     });
 }
 
-function onGetCustomersSuccess(customers) {
-    if ($("#customersTable tbody").length == 0) {
-        $("#customersTable").append("<tbody></tbody>");
+function onGetCandleSuccess(customers) {
+    if ($("#candlesTable tbody").length == 0) {
+        $("#candlesTable").append("<tbody></tbody>");
     }
-    $("#customersTable tbody").empty();
+    $("#candlesTable tbody").empty();
     // Iterate over the collection of data
     $.each(customers, function (index, customer) {
         // Add a row to the post table
@@ -29,11 +29,11 @@ function onGetCustomersSuccess(customers) {
 function addCustomerRow(customer) {
     // Check if <tbody> tag exists, add one if not
     // Append row to <table>
-    $("#customersTable tbody").append(
-        buildCustomerRow(customer));
+    $("#candlesTable tbody").append(
+        buildCandleRow(customer));
 }
 
-function buildCustomerRow(candle) {
+function buildCandleRow(candle) {
     var ret =
         "<tr>" +
         "<td>" + candle.id + "</td>" +
