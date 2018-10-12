@@ -1,3 +1,17 @@
+//Get specific candle
+function specificCandle() {
+    var id = $( "#specificCandleId" ).val();
+    $.ajax({
+        url: 'http://candleshop.azurewebsites.net/api/Candles/' + id,
+        type: 'GET',
+        dataType: 'json',
+        success: function (candle) {
+            $("#candlesTable tr").remove();
+            addCandleRow(candle);
+        }
+    });
+}
+
 //Getting candles
 function listCandles() {
     // Call Web API to get a list of post
@@ -5,8 +19,8 @@ function listCandles() {
         url: 'http://candleshop.azurewebsites.net/api/Candles',
         type: 'GET',
         dataType: 'json',
-        success: function (customers) {
-            onGetCandleSuccess(customers);
+        success: function (candles) {
+            onGetCandleSuccess(candles);
         },
         error: function (request, message, error) {
             handleException(request, message, error);
@@ -22,11 +36,11 @@ function onGetCandleSuccess(candles) {
     // Iterate over the collection of data
     $.each(candles, function (index, candle) {
         // Add a row to the post table
-        addCustomerRow(candle);
+        addCandleRow(candle);
     });
 }
 
-function addCustomerRow(candle) {
+function addCandleRow(candle) {
     // Check if <tbody> tag exists, add one if not
     // Append row to <table>
     $("#candlesTable tbody").append(
