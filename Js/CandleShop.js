@@ -41,7 +41,7 @@ function buildCandleRow(candle) {
         "<td>" + candle.type + "</td>" +
         "<td>" + candle.price + "</td>" +
         "<td>" + candle.stock + "</td>" +
-        "<td>" + candle.imageURL + "</td>" +
+        "<td><img src=" + candle.imageURL + "></td>" +
         "<td>"
         "<i class='fas fa-minus-circle'></i>" +
         "</button>" +
